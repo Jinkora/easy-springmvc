@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Easy-Spring-MVC.iml" filepath="$PROJECT_DIR$/Easy-Spring-MVC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easy-spring-mvc.iml" filepath="$PROJECT_DIR$/easy-spring-mvc.iml" />
     </modules>
   </component>
 </project>
