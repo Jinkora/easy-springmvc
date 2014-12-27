@@ -16,7 +16,6 @@ public class HelloController {
      * use {@link org.springframework.web.servlet.view.InternalResourceViewResolver}
      * to dispatch request to hello.jsp
      *
-     * dispatch to hello.jsp
      * @return hello.jsp
      */
     @RequestMapping("/hello")

@@ -21,8 +21,8 @@ public class MultipartController {
     /**
      * upload a image file and show it
      *
-     * @param image an image file uploaded
-     * @return just a byte array? ByteArrayHttpMessageConverter convert it to image
+     * @param image uploaded image file
+     * @return just a byte array? ByteArrayHttpMessageConverter convert it to image.
      * @see org.springframework.http.converter.ByteArrayHttpMessageConverter
      * @throws IOException
      */

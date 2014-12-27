@@ -8,6 +8,7 @@
     <context:component-scan base-package="com.kavlez.controller" use-default-filters="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
+
     <mvc:annotation-driven>
         <mvc:message-converters>
             <bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter">
@@ -35,7 +36,8 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <!-- support multipart type content -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-           <property name="maxUploadSize" value="1000000" />
+        <property name="maxUploadSize" value="1000000"/>
     </bean>
 </beans>
