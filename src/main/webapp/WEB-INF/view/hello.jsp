@@ -9,6 +9,8 @@
 <h2>Yep! This is hello.jsp</h2>
 post image file to
 <code>com.kavlez.controller.MultipartController.headImag</code>
+<br/><br/>
+
 <form:form action="./headImage" enctype="multipart/form-data" method="post">
     <input type="file" name="image" />
     <input type="submit" />
