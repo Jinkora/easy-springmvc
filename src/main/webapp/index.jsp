@@ -15,6 +15,7 @@
     Thanks for watching this sample :)</p>
 <ul>
     <li><a href="hello">Hello</a></li>
+    <li><a href="httpMethod">support all http methods</a></li>
 </ul>
 </body>
 </html>
