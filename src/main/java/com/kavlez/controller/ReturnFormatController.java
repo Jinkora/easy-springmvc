@@ -17,35 +17,32 @@ import java.util.List;
 @RequestMapping("/returnFormat")
 public class ReturnFormatController {
 
-    private static final String VIEW_DIR="returnFormat";
+    private static final String VIEW_DIR = "returnFormat";
 
     @RequestMapping
-    public String main(){
+    public String main() {
         return VIEW_DIR.concat("/main");
     }
 
+    /**
+     * @return as json format due to jackson-core is declared in pom.xml
+     */
     @RequestMapping(value = "/teachers")
-    public
     @ResponseBody
-    List<Teacher> teachers() {
-
-        Teacher t0 = new Teacher();
-        t0.setName("Silva");
-        Teacher t1 = new Teacher();
-        t1.setName("Velasquez");
-        Teacher t2 = new Teacher();
-        t2.setName("Aldo");
-        Teacher t3 = new Teacher();
-        t3.setName("Machida");
-//description The resource identified by this request is only capable of generating responses with characteristics not acceptable according to the request "accept" headers.
-
-        return Arrays.asList(t0, t1, t2, t3);
+    public List<Teacher> teachers() {
+        return Arrays.asList(
+                new Teacher().setName("Silva"),
+                new Teacher().setName("Velasquez"),
+                new Teacher().setName("Aldo"),
+                new Teacher().setName("Machida"));
     }
 
+    /**
+     * @return as json format due to jackson-core is declared in pom.xml
+     */
     @RequestMapping("/subject")
-    public
     @ResponseBody
-    Subject subject() {
+    public Subject subject() {
         Subject subject = new Subject();
         subject.setName("computer science");
         return subject;

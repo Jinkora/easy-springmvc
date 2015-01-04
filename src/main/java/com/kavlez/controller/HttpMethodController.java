@@ -13,7 +13,7 @@ import java.util.List;
  * @author Kavlez
  *         sweet_dreams@aliyun.com
  *         <p>
- *         Same url,different method
+ *         Same url,different method,different message
  */
 @Controller
 @RequestMapping("/httpMethod")
@@ -26,22 +26,16 @@ public class HttpMethodController {
         return VIEW_DIR.concat("/main");
     }
 
-
     @RequestMapping(value = "/teachers",method = RequestMethod.GET)
     public
     @ResponseBody
     List<Teacher> teachers() {
-        Teacher t0 = new Teacher();
-        t0.setName("Silva");
-        Teacher t1 = new Teacher();
-        t1.setName("Velasquez");
-        Teacher t2 = new Teacher();
-        t2.setName("Aldo");
-        Teacher t3 = new Teacher();
-        t3.setName("Machida");
-//description The resource identified by this request is only capable of generating responses with characteristics not acceptable according to the request "accept" headers.
 
-        return Arrays.asList(t0, t1, t2, t3);
+        return Arrays.asList(
+                new Teacher().setName("Silva"),
+                new Teacher().setName("Velasquez"),
+                new Teacher().setName("Aldo"),
+                new Teacher().setName("Machida"));
     }
 
     @RequestMapping(value = "/teachers",method = RequestMethod.POST)

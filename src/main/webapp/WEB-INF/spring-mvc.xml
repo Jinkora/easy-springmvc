@@ -9,53 +9,14 @@
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
-    <mvc:annotation-driven>
-        <mvc:message-converters>
-            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
-            <bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter">
-                <property name="supportedMediaTypes">
-                    <list>
-                        <value>image/jpeg</value>
-                        <value>image/png</value>
-                    </list>
-                </property>
-            </bean>
-        </mvc:message-converters>
-    </mvc:annotation-driven>
-
-    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
-        <property name="messageConverters">
-            <bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
-        </property>
-    </bean>
+    <mvc:annotation-driven />
 
     <mvc:resources location="WEB-INF/style/" mapping="/style/**" cache-period="604800"/>
 
-
-    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
-        <property name="contentNegotiationManager" ref="contentNegotiationManager"/>
-        <property name="viewResolvers">
-            <list>
-                <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-                    <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-                    <property name="prefix" value="/WEB-INF/views/"/>
-                    <property name="suffix" value=".jsp"/>
-                </bean>
-            </list>
-        </property>
-    </bean>
-
-    <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
-        <property name="favorParameter" value="true"/>
-        <property name="parameterName" value="format"/>
-        <property name="ignoreAcceptHeader" value="false"/>
-        <property name="mediaTypes">
-            <value>
-                json=application/json
-                xml=application/xml
-            </value>
-        </property>
-        <property name="defaultContentType" value="text/html"/>
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".jsp"/>
     </bean>
 
     <!-- support multipart type content -->

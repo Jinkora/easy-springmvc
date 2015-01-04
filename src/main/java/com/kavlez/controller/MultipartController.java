@@ -13,22 +13,23 @@ import java.io.IOException;
 /**
  * Author: Kavlez
  * sweet_dreams@aliyun.com
- * 14-12-25
  */
 @Controller
+@RequestMapping("/multiPart")
 public class MultipartController {
 
     /**
      * upload a image file and show it
      *
      * @param image uploaded image file
-     * @return just a byte array? ByteArrayHttpMessageConverter convert it to image.
-     * @see org.springframework.http.converter.ByteArrayHttpMessageConverter
+     * @return byte array as {@link org.springframework.http.MediaType}
      * @throws IOException
      */
-    @RequestMapping(value = "/image",method = RequestMethod.POST,
-            produces = {MediaType.IMAGE_JPEG_VALUE,MediaType.IMAGE_GIF_VALUE, MediaType.IMAGE_PNG_VALUE})
-    public @ResponseBody
+    @RequestMapping(value = "/image", method = RequestMethod.POST,
+            consumes = MediaType.MULTIPART_FORM_DATA_VALUE,
+            produces = MediaType.IMAGE_JPEG_VALUE)
+    public
+    @ResponseBody
     byte[] headImage(@RequestParam MultipartFile image) throws IOException {
         return image.getBytes();
     }

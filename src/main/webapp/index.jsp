@@ -15,7 +15,8 @@
     Thanks for watching this sample :)</p>
 <ul>
     <li><a href="hello">Hello</a></li>
-    <li><a href="httpMethod">support all http methods</a></li>
+    <li><a href="httpMethod">Hidden Http Methods</a></li>
+    <li><a href="returnFormat">Response Body</a></li>
 </ul>
 </body>
 </html>
