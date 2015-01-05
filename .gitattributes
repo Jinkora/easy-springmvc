@@ -1,2 +1,1 @@
-special-vendored-path/* linguist-vendored
 src/main/webapp/WEB-INF/style/* linguist-vendored=false
