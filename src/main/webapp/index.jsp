@@ -11,10 +11,10 @@
 <h2>Easy Spring MVC</h2>
 
 <p>
-    Help developers (myself Included) to learn <em>Spring web mvc</em> in very short time. <br>
-    Thanks for watching this sample :)</p>
+    Help developers to learn <strong>Spring web mvc</strong> in very short time. Thanks for watching this sample :)</p>
 <ul>
     <li><a href="hello">Hello</a></li>
+    <li><a href="urlPattern">URL Pattern</a></li>
     <li><a href="httpMethod">Hidden Http Methods</a></li>
     <li><a href="returnFormat">Response Body</a></li>
 </ul>

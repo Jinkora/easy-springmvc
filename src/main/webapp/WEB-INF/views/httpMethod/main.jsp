@@ -42,11 +42,11 @@
 <pre><code>&lt;filter&gt;
     &lt;filter-name&gt;httpMethodFilter&lt;/filter-name&gt;
     &lt;filter-class&gt;org.springframework.web.filter.HiddenHttpMethodFilter&lt;/filter-class&gt;
-    &lt;/filter&gt;
-    &lt;filter-mapping&gt;
+&lt;/filter&gt;
+&lt;filter-mapping&gt;
     &lt;filter-name&gt;httpMethodFilter&lt;/filter-name&gt;
     &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
-    &lt;/filter-mapping&gt;
+&lt;/filter-mapping&gt;
 </code></pre>
 
 <p><br>
