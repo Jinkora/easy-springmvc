@@ -6,7 +6,7 @@
     <title>URL Pattern Sample</title>
 </head>
 <body>
-
+<h2>Different ways to send param</h2>
 <ul>
     <li>Only 1 param is allowed:<a href="urlPattern/path/user/Kavlez">urlPattern/path/user/{username}</a></li>
     <li>Must be 2 params:<a href="urlPattern/auth/user/Kavlez/pass/0xCAFEBABE">urlPattern/auth/user/{username}/pass/{password}</a></li>
