@@ -8,16 +8,16 @@ import java.util.Map;
 /**
  * @author: Kavlez
  * sweet_dreams@aliyun.com
+ *
+ * about variables in url
  */
 @Controller
 @RequestMapping("/urlPattern")
 public class UrlPatternController {
 
-    private static final String VIEW_DIR = "urlPattern";
-
     @RequestMapping
     public String main() {
-        return VIEW_DIR.concat("/main");
+        return "/urlPattern";
     }
 
     /**

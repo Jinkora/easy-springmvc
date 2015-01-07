@@ -19,6 +19,7 @@
     <mvc:annotation-driven enable-matrix-variables="true"/>
 
     <mvc:resources location="WEB-INF/style/" mapping="/style/**" cache-period="604800"/>
+    <mvc:resources location="WEB-INF/js/" mapping="/js/**" cache-period="604800"/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>

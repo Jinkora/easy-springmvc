@@ -17,11 +17,10 @@ import java.util.List;
 @RequestMapping("/returnFormat")
 public class ReturnFormatController {
 
-    private static final String VIEW_DIR = "returnFormat";
 
     @RequestMapping
     public String main() {
-        return VIEW_DIR.concat("/main");
+        return "/returnFormat";
     }
 
     /**

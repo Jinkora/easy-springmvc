@@ -18,12 +18,11 @@ import java.util.List;
 @Controller
 @RequestMapping("/httpMethod")
 public class HttpMethodController {
-;
-    private static final String VIEW_DIR = "httpMethod";
+
 
     @RequestMapping
     public String main() {
-        return VIEW_DIR.concat("/main");
+        return "/httpMethod";
     }
 
     @RequestMapping(value = "/teachers",method = RequestMethod.GET)

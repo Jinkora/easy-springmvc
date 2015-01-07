@@ -15,6 +15,7 @@
 <ul>
     <li><a href="hello">Hello</a></li>
     <li><a href="urlPattern">URL Pattern</a></li>
+    <li><a href="annotation">Annotations make everything easier</a></li>
     <li><a href="httpMethod">Hidden Http Methods</a></li>
     <li><a href="returnFormat">Response Body</a></li>
 </ul>

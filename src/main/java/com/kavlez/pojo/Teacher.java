@@ -9,6 +9,11 @@ public class Teacher {
     private String name;
     private Gender gender;
 
+    @Override
+    public String toString() {
+        return "{\"name\":\""+this.name+"\"}";
+    }
+
     enum Gender{
         Male,Female
     }
