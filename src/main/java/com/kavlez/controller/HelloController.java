@@ -7,7 +7,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * Author: Kavlez
  * sweet_dreams@aliyun.com
- * 14-12-22
+ *
+ *
+ * 1.如果客户端发出的http请求符合DisptcherServlet的映射路径，则由DisptcherServlet处理
+ * 2.根据http message(所有因素)和HandlerMapping配置找到相应Handler。
+ *   PS:Handler并不是一个接口,任何pojo都可能成为Handler
+ * 3.通过HandlerAdapter对Handler进行封装,并用Adapter接口调用Handler。
+ * 4.处理完成后返回model和逻辑视图,DispatcherServlet通过ViewResolver找到视图对象。
+ * 5.找到view后对返回的model进行渲染。
+ *
  */
 @Controller
 @RequestMapping("/")
