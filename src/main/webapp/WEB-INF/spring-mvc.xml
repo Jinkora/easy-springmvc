@@ -16,7 +16,15 @@
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
-    <mvc:annotation-driven enable-matrix-variables="true"/>
+    <!-- Note that AnnotationMethodHandlerAdaptor was deprecated, use tag below instead -->
+    <mvc:annotation-driven enable-matrix-variables="true">
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.BufferedImageHttpMessageConverter" />
+            <bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter" />
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter" />
+            <bean class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter" />
+        </mvc:message-converters>
+    </mvc:annotation-driven>
 
     <mvc:resources location="WEB-INF/style/" mapping="/style/**" cache-period="604800"/>
     <mvc:resources location="WEB-INF/js/" mapping="/js/**" cache-period="604800"/>
@@ -31,4 +39,6 @@
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="1000000"/>
     </bean>
+
+
 </beans>

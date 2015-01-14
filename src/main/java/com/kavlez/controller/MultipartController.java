@@ -28,9 +28,8 @@ public class MultipartController {
     @RequestMapping(value = "/image", method = RequestMethod.POST,
             consumes = MediaType.MULTIPART_FORM_DATA_VALUE,
             produces = MediaType.IMAGE_JPEG_VALUE)
-    public
     @ResponseBody
-    byte[] headImage(@RequestParam MultipartFile image) throws IOException {
+    public byte[] headImage(@RequestParam MultipartFile image) throws IOException {
         return image.getBytes();
     }
 
