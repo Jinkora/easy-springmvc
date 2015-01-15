@@ -55,15 +55,16 @@ public class MessageConvertController {
     }
 
     /**
-     * StringMessageConverter used, check mvc:message-converters tag in spring-mvc.xml
+     * StringMessageConverter used
      *
      * @param requestBody
      * @return plain text
      */
-    @RequestMapping("/body")
     @ResponseBody
+    @RequestMapping(method = RequestMethod.POST, value = "/body")
     public String messageBody(@RequestBody String requestBody) {
         return "server accept:::".concat(requestBody);
+
     }
 
     /**
