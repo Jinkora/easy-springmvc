@@ -16,17 +16,29 @@
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
-    <!-- Note that AnnotationMethodHandlerAdaptor was deprecated, use tag below instead -->
+    <!-- AnnotationMethodHandlerAdaptor was deprecated, use mvc:annotation-driven instead -->
     <mvc:annotation-driven enable-matrix-variables="true">
-
         <mvc:message-converters>
-            <bean class="org.springframework.http.converter.BufferedImageHttpMessageConverter"  />
-            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"  />
-            <bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter" />
-            <bean class="org.springframework.http.converter.StringHttpMessageConverter" />
-            <bean class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter" />
+            <bean id="marshallingHttpMessageConverter"
+                  class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
+                <constructor-arg ref="jaxbMarshaller"/>
+                <property name="supportedMediaTypes" value="application/xml"/>
+            </bean>
+            <!--<bean id="atomFeedHttpMessageConverter" class="org.springframework.http.converter.feed.AtomFeedHttpMessageConverter">-->
+            <!--<property name="supportedMediaTypes" value="application/atom+xml"/>-->
+            <!--</bean>-->
+            <bean class="org.springframework.http.converter.BufferedImageHttpMessageConverter"/>
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+            <bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+            <bean class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter"/>
         </mvc:message-converters>
     </mvc:annotation-driven>
+
+
+    <bean id="jaxbMarshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+        <property name="packagesToScan" value="com.kavlez.pojo"/>
+    </bean>
 
     <mvc:resources location="WEB-INF/style/" mapping="/style/**" cache-period="604800"/>
     <mvc:resources location="WEB-INF/js/" mapping="/js/**" cache-period="604800"/>
@@ -40,6 +52,15 @@
     <!-- support multipart type content -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="1000000"/>
+    </bean>
+
+    <!-- rest template for test -->
+    <bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+        <property name="messageConverters">
+            <list>
+                <ref bean="marshallingHttpMessageConverter"/>
+            </list>
+        </property>
     </bean>
 
 

@@ -16,7 +16,16 @@ import java.io.UnsupportedEncodingException;
  * @author: Kavlez
  * sweet_dreams@aliyun.com
  * <p>
- * you should know these annotations
+ * Take annotations below:
+ *
+ * @see org.springframework.web.bind.annotation.RequestMapping
+ * @see org.springframework.web.bind.annotation.PathVariable
+ * @see org.springframework.web.bind.annotation.RequestParam
+ * @see org.springframework.web.bind.annotation.RequestHeader
+ * @see org.springframework.web.bind.annotation.RequestBody
+ * @see org.springframework.web.bind.annotation.ResponseBody
+ *
+ * Here is usage.
  */
 
 @Controller

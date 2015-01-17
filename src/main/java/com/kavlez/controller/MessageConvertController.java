@@ -18,7 +18,18 @@ import java.util.List;
  * @author: Kavlez
  * sweet_dreams@aliyun.com
  * <p>
- * about message converter
+ *
+ * every single request/response  is based on string
+ * how to convert between http message and object in java
+ *
+ * @see org.springframework.http.converter.HttpMessageConverter
+ *
+ *
+ * @see org.springframework.http.converter.BufferedImageHttpMessageConverter
+ * @see org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+ * @see org.springframework.http.converter.ByteArrayHttpMessageConverter
+ * @see org.springframework.http.converter.StringHttpMessageConverter
+ * @see org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter
  */
 @Controller
 @RequestMapping("/messageConvert")
@@ -31,7 +42,7 @@ public class MessageConvertController {
     }
 
     /**
-     * @return as json format due to jackson-core is declared in pom.xml
+     * @return as json format
      */
     @RequestMapping(value = "/teachers")
     @ResponseBody
@@ -44,9 +55,9 @@ public class MessageConvertController {
     }
 
     /**
-     * @return as json format due to jackson-core is declared in pom.xml
+     * @return as xml format
      */
-    @RequestMapping("/subject")
+    @RequestMapping(value="/subject",method=RequestMethod.GET,headers="Accept=application/xml, application/json")
     @ResponseBody
     public Subject subject() {
         Subject subject = new Subject();
