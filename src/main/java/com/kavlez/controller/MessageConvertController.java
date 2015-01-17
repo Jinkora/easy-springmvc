@@ -56,6 +56,7 @@ public class MessageConvertController {
 
     /**
      * @return as xml format
+     * Subject.class is annotated with @XmlRootElement
      */
     @RequestMapping(value="/subject",method=RequestMethod.GET,headers="Accept=application/xml, application/json")
     @ResponseBody
