@@ -18,13 +18,10 @@ import java.util.List;
  * @author: Kavlez
  * sweet_dreams@aliyun.com
  * <p>
- *
+ * <p>
  * every single request/response  is based on string
  * how to convert between http message and object in java
- *
  * @see org.springframework.http.converter.HttpMessageConverter
- *
- *
  * @see org.springframework.http.converter.BufferedImageHttpMessageConverter
  * @see org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
  * @see org.springframework.http.converter.ByteArrayHttpMessageConverter
@@ -44,7 +41,7 @@ public class MessageConvertController {
     /**
      * @return as json format
      */
-    @RequestMapping(value = "/teachers")
+    @RequestMapping(value = "/teachers", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public List<Teacher> teachers() {
         return Arrays.asList(
@@ -58,7 +55,7 @@ public class MessageConvertController {
      * @return as xml format
      * Subject.class is annotated with @XmlRootElement
      */
-    @RequestMapping(value="/subject",method=RequestMethod.GET,headers="Accept=application/xml, application/json")
+    @RequestMapping(value = "/subject", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
     @ResponseBody
     public Subject subject() {
         Subject subject = new Subject();

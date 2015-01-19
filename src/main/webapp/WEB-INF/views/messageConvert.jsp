@@ -9,10 +9,16 @@
 <body>
 <h2>Message Convert</h2>
 
-<p>Let's see how <strong>@RequestBody</strong> works.</p>
-
+<p>Let's <strong>@RequestBody</strong> works.</p>
+<p>At least 1 param in request body is needed!</p>
+<p>Request with nothing gonna return <strong>400</strong>.</p>
 <div>
     <form method="post" action="messageConvert/body">
+        <p>Submit with nothing in request body.</p>
+        <input type="submit"/>
+    </form>
+    <form method="post" action="messageConvert/body">
+        <p>Submit with something, value could be empty.</p>
         <label>
             <input name="firstName" value="Kavlez"/>
         </label>
@@ -24,24 +30,32 @@
 </div>
 <br/>
 
+<p>For Json format, make sure dependencies below were declared in pom.xml:</p>
+<pre>
+<code>&lt;dependency&gt;
+    &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+    &lt;artifactId&gt;jackson-core&lt;/artifactId&gt;
+    &lt;version&gt;${com.fasterxml.jackson.core}&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+    &lt;artifactId&gt;jackson-databind&lt;/artifactId&gt;
+    &lt;version&gt;${com.fasterxml.jackson.core}&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+    &lt;artifactId&gt;jackson-annotations&lt;/artifactId&gt;
+    &lt;version&gt;${com.fasterxml.jackson.core}&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
 <p>
-    Let controller method return as xml:
-    <a onclick="reqSubjectAsXML()" href="###">request</a>
+    com.kavlez.pojo.Subject instance in <a href="messageConvert/subject">xml</a>
+</p>
+<br/>
+<p>Make sure the Type you want to return as xml was annotated with <code>javax.xml.bind.annotation.XmlRootElement</code></p>
+<p>
+    com.kavlez.pojo.Teacher list in <a href="messageConvert/teachers">json</a>
 </p>
 
-<div id="subject"></div>
 </body>
-<script>
-    function reqSubjectAsXML() {
-        $.ajax({
-            type: "GET",
-            contentType: "application/xml",
-            url: "messageConvert/subject",
-            success: function (data) {
-                document.getElementById('subject').innerHTML =
-                        new XMLSerializer().serializeToString(data);
-            }
-        });
-    }
-</script>
+
 </html>

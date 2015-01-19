@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author: Kavlez
  * sweet_dreams@aliyun.com
  */
-@XmlRootElement(name="subject")
+@XmlRootElement
 public class Subject {
     private String name;
 
