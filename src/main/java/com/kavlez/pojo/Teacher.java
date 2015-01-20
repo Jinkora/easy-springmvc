@@ -14,12 +14,15 @@ public class Teacher {
         return "{\"name\":\""+this.name+"\"}";
     }
 
-    enum Gender{
-        Male,Female
+    public enum Gender{
+        Male,Female;
+
+        Gender() {
+        }
     }
 
     public Gender getGender() {
-        return gender;
+        return this.gender!=null?gender:Gender.Male;
     }
 
     public void setGender(Gender gender) {

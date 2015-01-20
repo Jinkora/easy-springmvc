@@ -21,6 +21,7 @@ import java.util.List;
  * <p>
  * every single request/response  is based on string
  * how to convert between http message and object in java
+ * message converter , convert request to object ,convert object to response
  * @see org.springframework.http.converter.HttpMessageConverter
  * @see org.springframework.http.converter.BufferedImageHttpMessageConverter
  * @see org.springframework.http.converter.json.MappingJackson2HttpMessageConverter

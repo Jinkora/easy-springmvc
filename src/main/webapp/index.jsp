@@ -17,7 +17,6 @@
     <li><a href="urlPattern">URL Pattern</a></li>
     <li><a href="annotation">Annotations make everything easier</a></li>
     <li><a href="httpMethod">Hidden Http Methods</a></li>
-    <li><a href="returnFormat">Response Body</a></li>
     <li><a href="#">Multipart Support</a></li>
     <li><a href="messageConvert">Message Converter</a></li>
     <li><a href="#">View Resolver</a></li>
