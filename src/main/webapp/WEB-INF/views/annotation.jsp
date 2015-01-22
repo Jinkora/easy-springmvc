@@ -29,7 +29,7 @@
         </form>
         <a href="annotation/modelMap">or use <strong>ModelMap</strong> instead</a>
     </li>
-    <li>@SessionAttributes</li>
+    <li><a href="annotation/session">@SessionAttributes</a></li>
     <li>@InitBinder</li>
     <li>@CookieValue</li>
 </ul>
