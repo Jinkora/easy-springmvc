@@ -13,7 +13,7 @@
     </script>
 </head>
 <body>
-<h2>Try these annotations!</h2>
+<h2>Bind data with annotation</h2>
 <ul>
     <li><a href="annotation/reqParam">@RequestParam</a></li>
     <li><a href="annotation/header">@RequestHeader</a></li>

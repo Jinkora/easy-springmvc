@@ -97,8 +97,17 @@
 
             <a href="urlPattern/xirtam/{{tneilc}};age={{ega}};height={{thgieh}}">urlPattern/xirtam/{{tneilc}};age={{ega}};height={{thgieh}}</a>
             <br/><br/></li>
+        <li>
+            Don't like Matrix pattern?  let's custom a converter.<br/>
+            <label>
+                <input type="text" ng-model="teacherName"/>
+            </label>
+            <br/>
+            <a href="urlPattern/convert?teacher={{teacherName}}">urlPattern/convert?teacher={{teacherName}}</a>
+        </li>
     </ul>
 </div>
+<br/>
 </body>
 
 </html>

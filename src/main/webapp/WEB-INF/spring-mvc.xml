@@ -17,13 +17,9 @@
     </context:component-scan>
 
     <!-- AnnotationMethodHandlerAdaptor was deprecated, use mvc:annotation-driven instead -->
-    <mvc:annotation-driven enable-matrix-variables="true">
+    <mvc:annotation-driven enable-matrix-variables="true" conversion-service="convertionService">
         <mvc:message-converters>
-            <bean id="marshallingHttpMessageConverter"
-                  class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
-                <constructor-arg ref="jaxbMarshaller"/>
-                <property name="supportedMediaTypes" value="application/xml"/>
-            </bean>
+            <ref bean="marshallingHttpMessageConverter"/>
             <!--<bean id="atomFeedHttpMessageConverter" class="org.springframework.http.converter.feed.AtomFeedHttpMessageConverter">-->
             <!--<property name="supportedMediaTypes" value="application/atom+xml"/>-->
             <!--</bean>-->
@@ -33,7 +29,14 @@
             <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
             <bean class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter"/>
         </mvc:message-converters>
+
+
     </mvc:annotation-driven>
+    <bean id="marshallingHttpMessageConverter"
+          class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
+        <constructor-arg ref="jaxbMarshaller"/>
+        <property name="supportedMediaTypes" value="application/xml"/>
+    </bean>
 
 
     <bean id="jaxbMarshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
@@ -55,13 +58,19 @@
     </bean>
 
     <!-- rest template for test -->
-    <!--<bean id="restTemplate" class="org.springframework.web.client.RestTemplate">-->
-        <!--<property name="messageConverters">-->
-            <!--<list>-->
-                <!--<ref bean="marshallingHttpMessageConverter"/>-->
-            <!--</list>-->
-        <!--</property>-->
-    <!--</bean>-->
+    <bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+        <property name="messageConverters">
+            <list>
+                <ref bean="marshallingHttpMessageConverter"/>
+            </list>
+        </property>
+    </bean>
 
-
+    <bean id="convertionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <bean class="com.kavlez.converter.TeacherConverter"/>
+            </set>
+        </property>
+    </bean>
 </beans>

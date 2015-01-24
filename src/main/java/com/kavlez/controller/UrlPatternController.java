@@ -1,5 +1,6 @@
 package com.kavlez.controller;
 
+import com.kavlez.pojo.Teacher;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -57,7 +58,7 @@ public class UrlPatternController {
     }
 
     /**
-     * without path variable? no problem!
+     * without path variable?
      * height is an optional param.
      */
     @RequestMapping(value = "/matrix_/{client}", method = RequestMethod.GET)
@@ -76,5 +77,18 @@ public class UrlPatternController {
     public String xirtam(@MatrixVariable(pathVar = "client") Map<String, String> matrixVarz) {
         return matrixVarz.toString();
     }
+
+    /**
+     * Don't like use matrix variable?
+     * Let's try customed converter
+     * @see com.kavlez.converter.TeacherConverter
+     */
+    @RequestMapping(value = "/convert", method = RequestMethod.GET)
+    @ResponseBody
+    public String xirtam(@RequestParam Teacher teacher) {
+        return teacher.toString();
+    }
+
+
 
 }
