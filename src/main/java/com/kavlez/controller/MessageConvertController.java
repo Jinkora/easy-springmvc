@@ -56,9 +56,16 @@ public class MessageConvertController {
      * @return as xml format
      * Subject.class is annotated with @XmlRootElement
      */
-    @RequestMapping(value = "/subject", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
+    @RequestMapping(value = "/subject", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE,headers = {"a=1"})
     @ResponseBody
-    public Subject subject() {
+    public Subject subjectInXml() {
+        Subject subject = new Subject();
+        subject.setName("computer science");
+        return subject;
+    }
+    @RequestMapping(value = "/subject", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE,headers = "b=2")
+    @ResponseBody
+    public Subject subjectInJson() {
         Subject subject = new Subject();
         subject.setName("computer science");
         return subject;

@@ -19,16 +19,31 @@ public class ControllerTest {
     private static final RestTemplate restTemplate = (RestTemplate) ctx.getBean("restTemplate");
 
     @Test
-    public void testDemo() {
+    public void testMarshalling() {
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_XML);
+        headers.set("a","2");
 
         ResponseEntity<Subject> response = restTemplate.exchange(
                 "http://localhost:8080/easy-springmvc/messageConvert/subject"
                 , HttpMethod.GET
                 , new HttpEntity<String>(headers)
                 , Subject.class);
+        logger.debug(response.getBody().toString());
+
+    }
+
+    @Test
+    public void testResponseEntity() {
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        ResponseEntity<String> response = restTemplate.exchange(
+                "http://localhost:8080/easy-springmvc/annotation/entity"
+                , HttpMethod.GET
+                , new HttpEntity<String>(headers)
+                , String.class);
         logger.debug(response.toString());
 
     }
