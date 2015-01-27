@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xi="http://www.w3.org/2001/XInclude"
+               status="fatal" moniterInterval="5">
+    <!-- valid status values {"trace", "debug", "info", "warn", "error" ,"fatal"}-->
+
+    <xi:include href="log4j2-appenders.xml"/>
+    <xi:include href="log4j2-loggers.xml"/>
+
+    <Properties>
+        <Property name="filename">target/rolling1/rollingtest-$${sd:type}.log</Property>
+        <Property name="logpath">${sys:catalina.base}/logs</Property>
+    </Properties>
+    <ThresholdFilter level="debug"/>
+</configuration>

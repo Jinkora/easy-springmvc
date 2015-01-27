@@ -1,6 +1,8 @@
 package com.kavlez.controller;
 
 import com.kavlez.pojo.Teacher;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.propertyeditors.PropertiesEditor;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -34,6 +36,8 @@ import java.util.Arrays;
 @RequestMapping("/annotation")
 @SessionAttributes("teacher")
 public class AnnotationController {
+    
+    private static final Logger logger = LogManager.getLogger(AnnotationController.class);
 
     /**
      * you already know
@@ -109,7 +113,7 @@ public class AnnotationController {
     @ResponseBody
     public String printSessionAttr(ModelMap modelMap,SessionStatus sessionStatus){
         Teacher teacher = (Teacher) modelMap.get("teacher");
-        System.out.println("before cleanup session attributes::"+teacher);
+        logger.debug("before cleanup session attributes::"+teacher);
         sessionStatus.setComplete();    //cleanup session attrs
         return  teacher.toString();
     }
@@ -123,8 +127,8 @@ public class AnnotationController {
     @RequestMapping("/entity")
     @ResponseBody
     public ResponseEntity<String> handle(HttpEntity<byte[]> requestEntity) throws UnsupportedEncodingException {
-        System.out.println(requestEntity.getHeaders().getFirst("MyRequestHeader"));
-        System.out.println(Arrays.toString(requestEntity.getBody()));
+        logger.debug(requestEntity.getHeaders().getFirst("MyRequestHeader"));
+        logger.debug(Arrays.toString(requestEntity.getBody()));
 
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set("MyResponseHeader", "MyValue");

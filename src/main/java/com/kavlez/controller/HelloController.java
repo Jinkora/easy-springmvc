@@ -1,5 +1,8 @@
 package com.kavlez.controller;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.status.StatusLogger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,6 +39,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class HelloController {
 
+    private static final Logger logger = LogManager.getLogger(HelloController.class);
+    private static final Logger statusLogger = StatusLogger.getLogger();
+
     /**
      * use {@link org.springframework.web.servlet.view.InternalResourceViewResolver}
      * to dispatch request to hello.jsp
@@ -45,6 +51,8 @@ public class HelloController {
     @RequestMapping("/hello")
     public String hello(Model model){
         model.addAttribute("message","Hello Controller!");
+        logger.debug("hello");
         return "/hello";
     }
+
 }
