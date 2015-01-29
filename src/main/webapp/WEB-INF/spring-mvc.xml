@@ -19,12 +19,18 @@
     <!-- AnnotationMethodHandlerAdaptor was deprecated, use mvc:annotation-driven instead -->
     <mvc:annotation-driven enable-matrix-variables="true" conversion-service="convertionService">
         <mvc:message-converters>
-            <ref bean="marshallingHttpMessageConverter"/>
             <!--<bean id="atomFeedHttpMessageConverter" class="org.springframework.http.converter.feed.AtomFeedHttpMessageConverter">-->
             <!--<property name="supportedMediaTypes" value="application/atom+xml"/>-->
             <!--</bean>-->
             <bean class="org.springframework.http.converter.BufferedImageHttpMessageConverter"/>
-            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <!--<value>application/xml</value>-->
+                    </list>
+                </property>
+            </bean>
+            <ref bean="marshallingHttpMessageConverter"/>
             <bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
             <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
             <bean class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter"/>
@@ -35,7 +41,6 @@
     <bean id="marshallingHttpMessageConverter"
           class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
         <constructor-arg ref="jaxbMarshaller"/>
-        <property name="supportedMediaTypes" value="application/xml"/>
     </bean>
 
 

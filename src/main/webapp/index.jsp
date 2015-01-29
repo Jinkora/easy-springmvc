@@ -16,12 +16,12 @@
     <li><a href="hello">Hello</a></li>
     <li>Bind Data
         <ul>
-            <li><a href="urlPattern">URL Pattern</a></li>
+            <li><a href="urlPattern">Bind data in URL</a></li>
             <li><a href="annotation">Annotations make everything easier</a></li>
         </ul>
     </li>
     <li><a href="httpMethod">Hidden Http Methods</a></li>
-    <li><a href="#">Multipart Support</a></li>
+    <li><a href="multipartSupport">Multipart Support</a></li>
     <li><a href="messageConvert">Message Converter</a></li>
     <li><a href="#">View Resolver</a></li>
     <li><a href="#">Interceptor</a></li>

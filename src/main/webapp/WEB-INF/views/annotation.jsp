@@ -6,9 +6,9 @@
 <head>
     <title>Annotation</title>
     <script>
-        var annotationModule = angular.module("annotationModule",[]);
-        annotationModule.controller("modelAttrController", function($scope){
-            $scope.teacher=[];
+        var annotationModule = angular.module("annotationModule", []);
+        annotationModule.controller("modelAttrController", function ($scope) {
+            $scope.teacher = [];
         });
     </script>
 </head>
@@ -18,15 +18,17 @@
     <li><a href="annotation/reqParam">@RequestParam</a></li>
     <li><a href="annotation/header">@RequestHeader</a></li>
     <li data-ng-app="annotationModule">@ModelAttribute
-        <form action="annotation/modelAttr" method="post" data-ng-controller="modelAttrController">
-            input your teacher's name:
-            <label>
-                <input type="text" name="name" data-ng-model="teacher.name"/><br/>
-                teacher.setName({{teacher.name}})
-            </label>
-            <br/>
-            <input type="submit">
-        </form>
+        <div style="border:1px solid;padding: 10px;width:360px">
+            <form action="annotation/modelAttr" method="post" data-ng-controller="modelAttrController">
+                input your teacher's name:
+                <label>
+                    <input type="text" name="name" data-ng-model="teacher.name"/><br/>
+                    teacher.setName({{teacher.name}})
+                </label>
+                <input type="submit">
+            </form>
+        </div>
+        <br/>
         <a href="annotation/modelMap">or use <strong>ModelMap</strong> instead</a>
     </li>
     <li><a href="annotation/session">@SessionAttributes</a></li>

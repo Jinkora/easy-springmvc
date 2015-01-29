@@ -7,7 +7,7 @@
     <title>URL Pattern Sample</title>
 </head>
 <body>
-<h2>Different ways to send param</h2>
+<h2>Bind data in URL</h2>
 
 <div data-ng-app="">
     <ul>

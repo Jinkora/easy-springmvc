@@ -53,17 +53,9 @@ public class MessageConvertController {
     }
 
     /**
-     * @return as xml format
-     * Subject.class is annotated with @XmlRootElement
+     * @return as json format
      */
-    @RequestMapping(value = "/subject", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE,headers = {"a=1"})
-    @ResponseBody
-    public Subject subjectInXml() {
-        Subject subject = new Subject();
-        subject.setName("computer science");
-        return subject;
-    }
-    @RequestMapping(value = "/subject", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE,headers = "b=2")
+    @RequestMapping(value = "/subject", method = RequestMethod.GET)
     @ResponseBody
     public Subject subjectInJson() {
         Subject subject = new Subject();
@@ -72,9 +64,21 @@ public class MessageConvertController {
     }
 
     /**
+     * @return as xml format
+     * Subject.class is annotated with @XmlRootElement
+     */
+    @RequestMapping(value = "/subject", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
+    @ResponseBody
+    public Subject subjectInXml() {
+        Subject subject = new Subject();
+        subject.setName("computer science");
+        return subject;
+    }
+
+    /**
      * StringMessageConverter used
      *
-     * @param requestBody
+     * @param requestBody make sure request body is not empty
      * @return plain text
      */
     @ResponseBody

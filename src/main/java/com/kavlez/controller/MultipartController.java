@@ -15,8 +15,13 @@ import java.io.IOException;
  * sweet_dreams@aliyun.com
  */
 @Controller
-@RequestMapping("/multiPart")
+@RequestMapping("/multipartSupport")
 public class MultipartController {
+
+    @RequestMapping
+    public String main() {
+        return "/multipartSupport";
+    }
 
     /**
      * upload a image file and show it
