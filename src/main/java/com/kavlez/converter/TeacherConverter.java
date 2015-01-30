@@ -7,6 +7,8 @@ import org.springframework.core.convert.converter.Converter;
 /**
  * @author: Kavlez
  * sweet_dreams@aliyun.com
+ *
+ * @see org.springframework.core.convert.converter.Converter
  */
 public class TeacherConverter implements Converter<String, Teacher> {
     @Override

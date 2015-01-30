@@ -25,7 +25,7 @@
     <li><a href="messageConvert">Message Converter</a></li>
     <li><a href="#">View Resolver</a></li>
     <li><a href="#">Interceptor</a></li>
-    <li><a href="#">Other Configure</a></li>
+    <li><a href="#">Data Validation</a></li>
     <li><a href="#">Tag Supports for JSP</a></li>
 
 </ul>

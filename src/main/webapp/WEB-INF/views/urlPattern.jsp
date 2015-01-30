@@ -98,7 +98,22 @@
             <a href="urlPattern/xirtam/{{tneilc}};age={{ega}};height={{thgieh}}">urlPattern/xirtam/{{tneilc}};age={{ega}};height={{thgieh}}</a>
             <br/><br/></li>
         <li>
-            Don't like Matrix pattern?  let's custom a converter.<br/>
+            Don't like Matrix pattern? Customize a converter.<br/>
+
+
+            <p>First, declare an implemenets class of <strong>org.springframework.core.convert.converter.Converter</strong></p>
+            <p>then override </p>
+            <pre><code>T convert(S source);</code></pre>
+            <p>then specify in spring-mvc.xml</p>
+<pre><code>&lt;bean id="convertionService" class="org.springframework.context.support.ConversionServiceFactoryBean"&gt;
+    &lt;property name="converters"&gt;
+    &lt;set&gt;
+    &lt;bean class="com.kavlez.converter.TeacherConverter"/&gt;
+    &lt;/set&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;</code></pre>
+
+            <p>try it:</p>
             <label>
                 <input type="text" ng-model="teacherName"/>
             </label>
