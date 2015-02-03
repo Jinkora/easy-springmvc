@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Loggers>
-
-    <!--<Logger name="EventLogger" level="info" additivity="false">-->
-        <!--<AppenderRef ref="Routing"/>-->
     <!--</Logger>-->
     <Root level="debug">
-        <!--<AppenderRef ref="ALog"/>-->
         <AppenderRef ref="Console"/>
         <AppenderRef ref="rollingFile"/>
     </Root>
