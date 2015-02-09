@@ -31,7 +31,11 @@
         <br/>
         <a href="annotation/modelMap">or use <strong>ModelMap</strong> instead</a>
     </li>
-    <li><a href="annotation/session">@SessionAttributes</a></li>
+    <li><a href="annotation/session">@SessionAttributes</a>
+    <p>Note that @SessionAttribute was declared as <strong>@Target({ElementType.TYPE}).</strong>
+        <br/>
+        That is , only with @SessionAttribute does not make much sense.</p>
+    </li>
     <li>@InitBinder</li>
     <li>@CookieValue</li>
 </ul>

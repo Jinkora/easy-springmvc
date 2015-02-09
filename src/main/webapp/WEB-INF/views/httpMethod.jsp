@@ -15,6 +15,7 @@
 
 
 <h2>Different method Different message</h2>
+<p>To make this project more RESTful, let spring mvc support HTTP methods.</p>
 <p>There is only one url declared like <code>httpMethod/teachers</code> .<br>
     And 4 different methods below:
 </p>

@@ -69,6 +69,7 @@ public class AnnotationController {
     }
 
     /**
+     * 将ModelAttribute声明于方法上，访问该Controller中的任何请求处理方法前都会预先处理该方法
      * ModelAttribute annotated with method
      * call modelAttr , teacher.getGender() == Gender.Female
      */
@@ -99,15 +100,17 @@ public class AnnotationController {
 
 
     /**
-     * 调用控制器之前会创建一个隐藏模型
-     * 调用所有标注了ModelAttributes的方法 处理隐藏模型
-     * 查看session中是否存在SessionAttribute指定的属性 有则加入或覆盖隐藏模型中的属性
-     * 对于标注了ModelAttribute的参数
-     *      1.先从隐藏模型中填充  再从请求报文中填充
-     *      2.如果该参数是SessionAttributes指定的属性 则先从session中填充 再从请求报文中填充
+     * <pre>
+     * 调用控制器之前会在请求线程中创建一个隐藏模型
+     * 调用所有标注了ModelAttributes的<strong>方法</strong>,其返回值会加入到隐藏模型中
+     * 查看session中是否存在SessionAttribute指定的属性，若存在则加入或<strong>覆盖</strong>隐藏模型中的属性
+     * 对于标注了ModelAttribute的<strong>参数</strong>
+     *      1.先从隐藏模型中填充,再从请求报文中填充
+     *      2.如果该参数是SessionAttributes指定的属性,则先从session中填充,再从请求报文中填充
      *      如果session中找不到则抛出HttpSessionRequiredException
-     *      3.如果隐藏模型不存在该属性且该属性非session属性则从报文中填充
-     *
+     *      (如果你发现你的ModelAttribute莫名抛出异常,很有可能是因为该模型的名称早已声明在会话中)
+     *      3.如果隐藏模型不存在该属性且该属性非session属性则先创建该对象再从报文中填充
+     *</pre>
      */
     @RequestMapping("/session")
     @ResponseBody

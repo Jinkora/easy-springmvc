@@ -14,10 +14,10 @@
     Help developers to learn <strong>Spring web mvc</strong> in very short time. Thanks for watching this sample :)</p>
 <ul>
     <li><a href="hello">Hello</a></li>
-    <li>Bind Data
+    <li>Model
         <ul>
             <li><a href="urlPattern">Bind data in URL</a></li>
-            <li><a href="annotation">Annotations make everything easier</a></li>
+            <li><a href="annotation">Annotations</a></li>
         </ul>
     </li>
     <li><a href="httpMethod">Hidden Http Methods</a></li>
