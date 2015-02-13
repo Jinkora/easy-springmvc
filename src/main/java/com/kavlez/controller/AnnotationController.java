@@ -3,7 +3,7 @@ package com.kavlez.controller;
 import com.kavlez.pojo.Teacher;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.propertyeditors.PropertiesEditor;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -11,10 +11,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.ServletRequestDataBinder;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 
 import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
 /**
@@ -77,7 +79,6 @@ public class AnnotationController {
     public Teacher modelAttrMethod() {
         Teacher teacher = new Teacher();
         teacher.setName("kavlez");
-        teacher.setGender(Teacher.Gender.Female);
         return teacher;
     }
 
@@ -141,6 +142,11 @@ public class AnnotationController {
     @InitBinder
     protected void initBinder(ServletRequestDataBinder binder) throws Exception {
         binder.setAutoGrowNestedPaths(false);
-        binder.registerCustomEditor(Teacher.class, new PropertiesEditor());
+        binder.registerCustomEditor(Teacher.class, new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"),true));
+    }
+
+    @InitBinder("teacher")
+    public void initBinderGoods(WebDataBinder binder) {
+        binder.setFieldDefaultPrefix("teacher.");
     }
 }

@@ -108,10 +108,10 @@
 <pre><code>&lt;bean id="convertionService" class="org.springframework.context.support.ConversionServiceFactoryBean"&gt;
     &lt;property name="converters"&gt;
     &lt;set&gt;
-    &lt;bean class="com.kavlez.converter.TeacherConverter"/&gt;
+    &lt;bean class="com.kavlez.webcomponent.converter.TeacherConverter"/&gt;
     &lt;/set&gt;
     &lt;/property&gt;
-&lt;/bean&gt;</code></pre>
+    &lt;/bean&gt;</code></pre>
 
             <p>try it:</p>
             <label>

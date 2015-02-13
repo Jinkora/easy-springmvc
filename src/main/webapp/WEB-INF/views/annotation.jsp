@@ -36,7 +36,16 @@
         <br/>
         That is , only with @SessionAttribute does not make much sense.</p>
     </li>
-    <li>@InitBinder</li>
+    <li><a href="">@InitBinder</a>
+    <p>
+        <p>If you want to use your editor on global , you gotta register editors in your own bindingInitializer and declare in config file as below:</p>
+<pre><code>&lt;bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"&gt;
+    &lt;property name="webBindingInitializer"&gt;
+         &lt;bean class="com.kavlez.webcomponent.bindingInitializer.MyBindingInitializer"/&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;</code></pre>
+    </p>
+    </li>
     <li>@CookieValue</li>
 </ul>
 </body>

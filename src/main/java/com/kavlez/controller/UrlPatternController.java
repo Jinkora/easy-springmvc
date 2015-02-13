@@ -81,7 +81,7 @@ public class UrlPatternController {
     /**
      * Don't like use matrix variable?
      * Let's try customed converter
-     * @see com.kavlez.converter.TeacherConverter
+     * @see com.kavlez.webcomponent.converter.TeacherConverter
      */
     @RequestMapping(value = "/convert", method = RequestMethod.GET)
     @ResponseBody

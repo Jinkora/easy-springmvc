@@ -33,12 +33,24 @@
             <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
             <bean class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter"/>
         </mvc:message-converters>
-
-
     </mvc:annotation-driven>
+
+
     <bean id="marshallingHttpMessageConverter"
           class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
         <constructor-arg ref="jaxbMarshaller"/>
+    </bean>
+    <bean id="convertionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <bean class="com.kavlez.webcomponent.converter.TeacherConverter"/>
+            </set>
+        </property>
+    </bean>
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="webBindingInitializer">
+            <bean class="com.kavlez.webcomponent.bindingInitializer.MyBindingInitializer"/>
+        </property>
     </bean>
 
 
@@ -69,11 +81,4 @@
         </property>
     </bean>
 
-    <bean id="convertionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
-        <property name="converters">
-            <set>
-                <bean class="com.kavlez.converter.TeacherConverter"/>
-            </set>
-        </property>
-    </bean>
 </beans>

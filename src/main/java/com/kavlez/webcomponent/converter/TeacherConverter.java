@@ -1,4 +1,4 @@
-package com.kavlez.converter;
+package com.kavlez.webcomponent.converter;
 
 import com.kavlez.pojo.Teacher;
 import org.apache.commons.lang3.StringUtils;
@@ -13,7 +13,7 @@ import org.springframework.core.convert.converter.Converter;
  * mvc框架将servletRequest和请求参数对象传递给DataBinder
  * DataBinder调用Spring web context中的ConversionService进行数据的结构化和转换
  * 然后调用Validator组件对数据对象进行校验,生成绑定结果,即org.springframework.validation.BindingResult
- * 最后从BindingResult中抽取数据对象,赋予处理方法的相应入参
+ * 最后从BindingResult中抽取数据对象,赋予处理方法的相应入参让
  * </pre>
  *
  * @see org.springframework.core.convert.converter.Converter

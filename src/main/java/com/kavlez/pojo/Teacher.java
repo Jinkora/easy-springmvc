@@ -7,26 +7,10 @@ package com.kavlez.pojo;
 public class Teacher {
     private Subject subject;
     private String name;
-    private Gender gender;
 
     @Override
     public String toString() {
-        return "{\"name\":\""+this.name+"\"}";
-    }
-
-    public enum Gender{
-        Male,Female;
-
-        Gender() {
-        }
-    }
-
-    public Gender getGender() {
-        return this.gender!=null?gender:Gender.Male;
-    }
-
-    public void setGender(Gender gender) {
-        this.gender = gender;
+        return "{\"name\":\"" + this.name + "\"}";
     }
 
     public String getName() {
@@ -34,7 +18,8 @@ public class Teacher {
     }
 
     public Teacher setName(String name) {
-        this.name = name;return this;
+        this.name = name;
+        return this;
     }
 
     public Subject getSubject() {
