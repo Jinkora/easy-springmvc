@@ -52,6 +52,9 @@
     <li>@Format
     <p>check Teacher.java</p>
     </li>
+    <li>@Validation
+    <p>use annotation to validate field value and response result to jsp.</p>
+    </li>
 </ul>
 </body>
 </html>
