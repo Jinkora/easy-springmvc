@@ -38,6 +38,8 @@
     </li>
     <li><a href="">@InitBinder</a>
     <p>
+        <p>there is priority issue about editor<br>
+         e.g  InitBinder > ConversionService > WebBindingInitializer</p>
         <p>If you want to use your editor on global , you gotta register editors in your own bindingInitializer and declare in config file as below:</p>
 <pre><code>&lt;bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"&gt;
     &lt;property name="webBindingInitializer"&gt;
@@ -47,6 +49,9 @@
     </p>
     </li>
     <li>@CookieValue</li>
+    <li>@Format
+    <p>check Teacher.java</p>
+    </li>
 </ul>
 </body>
 </html>

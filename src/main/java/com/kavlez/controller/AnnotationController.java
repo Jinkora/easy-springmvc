@@ -139,6 +139,11 @@ public class AnnotationController {
         return new ResponseEntity<>("Hello World", responseHeaders, HttpStatus.CREATED);
     }
 
+    /**
+     *
+     * there is priority issue about editor
+     * e.g  InitBinder > ConversionService > WebBindingInitializer
+     */
     @InitBinder
     protected void initBinder(ServletRequestDataBinder binder) throws Exception {
         binder.setAutoGrowNestedPaths(false);
