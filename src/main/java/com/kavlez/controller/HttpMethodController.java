@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author Kavlez
@@ -25,7 +26,7 @@ public class HttpMethodController {
         return "/httpMethod";
     }
 
-    @RequestMapping(value = "/teachers",method = RequestMethod.GET)
+    @RequestMapping(value = "/teachers", method = RequestMethod.GET)
     public
     @ResponseBody
     List<Teacher> teachers() {
@@ -34,30 +35,30 @@ public class HttpMethodController {
                 new Teacher().setName("Silva"),
                 new Teacher().setName("Velasquez"),
                 new Teacher().setName("Aldo"),
-                new Teacher().setName("Machida"));
+                new Teacher().setName("Machida"))
+                .stream().filter(teacher -> teacher.getName().length() > 2).collect(Collectors.toList());
     }
 
-    @RequestMapping(value = "/teachers",method = RequestMethod.POST)
+    @RequestMapping(value = "/teachers", method = RequestMethod.POST)
     public
     @ResponseBody
     String insertTeachers() {
         return "teachers' data inserted";
     }
 
-    @RequestMapping(value = "/teachers",method = RequestMethod.DELETE)
+    @RequestMapping(value = "/teachers", method = RequestMethod.DELETE)
     public
     @ResponseBody
     String deleteTeachers() {
         return "teachers' data deleted";
     }
 
-    @RequestMapping(value = "/teachers",method = RequestMethod.PUT)
+    @RequestMapping(value = "/teachers", method = RequestMethod.PUT)
     public
     @ResponseBody
     String putTeachers() {
         return "teachers' data modified";
     }
-
 
 
 }

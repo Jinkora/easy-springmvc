@@ -12,6 +12,7 @@ import java.util.Date;
 public class Teacher {
     private Subject subject;
     private String name;
+    private String fisrtName;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthDay;
@@ -55,5 +56,13 @@ public class Teacher {
 
     public void setSalary(long salary) {
         this.salary = salary;
+    }
+
+    public String getFisrtName() {
+        return fisrtName;
+    }
+
+    public void setFisrtName(String fisrtName) {
+        this.fisrtName = fisrtName;
     }
 }
