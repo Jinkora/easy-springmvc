@@ -76,7 +76,6 @@ public class ControllerTest extends BaseTestCase {
                 return teacher;
             }
         }).collect(Collectors.toList());
-
         long t0 = System.nanoTime();
 
         int end = 1_000_000_0;;
